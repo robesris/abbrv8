@@ -3,6 +3,8 @@ class Abbrv8UrlController < ApplicationController
   end
 
   def create
-    Abbrv8Url.create(params[:long_url])
+    @abbrv8_url = Abbrv8Url.create(params[:long_url])
+
+    render action: :index
   end
 end
