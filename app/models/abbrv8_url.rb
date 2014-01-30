@@ -1,5 +1,5 @@
 class Abbrv8Url < ActiveRecord::Base
-  validates :long_url, presence: true
+  validates :long_url, presence: true, allow_blank: false
   validate :url_format
 
   before_create :generate_short_url
@@ -13,6 +13,23 @@ class Abbrv8Url < ActiveRecord::Base
   end
 
   def url_format
-    URI.parse(self.long_url).kind_of?(URI::HTTP)
+    self.errors.add(:base, url_error_message) unless URI.parse(self.long_url).kind_of?(URI::HTTP)
+  end
+
+  private
+
+  def url_error_message
+    case rand(5)
+    when 0
+      "Seriously?"
+    when 1
+      "Um...are you sure you typed that right?"
+    when 2
+      "That doesn't look like a url to me.  But then what do I know, I'm just the internet..."
+    when 3
+      "Nope."
+    when 4
+      "LOL nice try"
+    end
   end
 end
