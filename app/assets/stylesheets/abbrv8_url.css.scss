@@ -1,0 +1,39 @@
+html, body {
+  font-family: 'Lucida Console', sans-serif
+}
+
+.text-box {
+  float: left;
+  margin-right: 2em;
+}
+
+#abbrv8_url_long_url {
+  width: 40em;
+}
+
+.button {
+  float: left;
+}
+
+#short-url {
+  clear: both;
+  margin: 3em 0;
+}
+
+#errors {
+  color: #FF0000;
+}
+
+.message {
+  margin-top: 1em;
+}
+
+#title {
+  font-size: 8em;
+  font-weight: lighter;
+  color: #990000;
+}
+
+#shorten-form {
+  margin: 0 auto;
+}

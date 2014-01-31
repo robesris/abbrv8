@@ -1,11 +1,18 @@
-= form_for :abbrv8_url, url: {action: 'create'} do |f|
-  = f.text_field :long_url
-  = f.submit "Shorten"
+#container
+  #title
+    Abbrv8
 
-#short-url= @short_url
+  #shorten-form
+    = form_for :abbrv8_url, url: {action: 'create'} do |f|
+      .text-box
+        = f.text_field :long_url
+      .button
+        = f.submit "Shorten"
 
-#errors
-  - if @error_messages
-    - @error_messages.each do |message|
-      .message= message
+  #short-url= @short_url
+
+  #errors
+    - if @error_messages
+      - @error_messages.each do |message|
+        .message= message
 
