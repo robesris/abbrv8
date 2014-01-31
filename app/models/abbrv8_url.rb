@@ -1,6 +1,6 @@
 class Abbrv8Url < ActiveRecord::Base
   validates :long_url, presence: true, allow_blank: false
-  validates :short_url, uniqueness: true
+  validates :short_url, uniqueness: true, allow_blank: false
   validates_formatting_of :long_url, using: :url
 
   before_validation :standardize_long_url, :generate_short_url

@@ -18,9 +18,14 @@ class Abbrv8UrlController < ApplicationController
     abbrv8_url = Abbrv8Url.where(short_url: params[:short_url]).first
 
     if abbrv8_url
+      abbrv8_url.visits << Visit.create
       redirect_to abbrv8_url.long_url
     else
       redriect_to action: :index
     end
+  end
+
+  def stats
+    @abbrv8_urls = Abbrv8Url.all.includes(:visits).order('visits.created_at desc')
   end
 end

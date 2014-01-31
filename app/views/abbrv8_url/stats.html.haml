@@ -1,0 +1,18 @@
+=link_to "< Back", root_path
+
+#title
+  Stats
+
+#stats
+  .row
+    .col
+      Short
+    .col
+      Long
+    .col
+      \# of Visits
+  - @abbrv8_urls.each do |abbrv8_url|
+    .row
+      .col= link_to(short_url(abbrv8_url.short_url), short_url(abbrv8_url.short_url), target: "_blank")
+      .col= link_to(abbrv8_url.long_url, abbrv8_url.long_url, target: "_blank")
+      .col= abbrv8_url.visits.count

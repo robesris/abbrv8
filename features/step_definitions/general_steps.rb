@@ -43,6 +43,6 @@ When(/^I visit the stats page$/) do
 end
 
 Then(/^I should see (\d+) visits? to the short url$/) do |num|
-  expect(page.text).to have_content(/#{@short_url}.*#{num}/)
+  expect(page).to have_content(/#{@short_url.split("/").last}.*#{num}/)
 end
 
