@@ -10,6 +10,8 @@ gem 'pg'
 
 gem 'randexp'
 
+gem 'validates_formatting_of'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc1'
 
