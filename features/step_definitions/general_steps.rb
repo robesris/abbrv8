@@ -21,3 +21,11 @@ Then(/^that url should lead to the original url$/) do
   abbrv8_url = Abbrv8Url.where(short_url: @short_url.split('/').last).first
   expect(abbrv8_url.long_url).to eq(@long_url)
 end
+
+Then(/^I should not get a short url$/) do
+  expect(find('#short-url')).to be_blank
+end
+
+Then(/^I should see an error message$/) do
+  expect(find('#errors')).to_not be_blank
+end
