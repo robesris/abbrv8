@@ -26,3 +26,17 @@ Scenario: User tries to shorten an invalid url
   And I try to shorten "www..notaurl"
   Then I should not get a short url
   And I should see an error message
+
+Scenario: Visit a shortened url and check stats
+  Given I am on the homepage
+  And I try to shorten "reddit.com"
+  Then I should get a short url
+  When I visit the short url
+  Then I should be on "www.reddit.com"
+
+  When I visit the stats page
+  Then I should see 1 visit to the short url
+
+  When I visit the short url
+  And I visit the stats page
+  Then I should see 2 visits to the short url

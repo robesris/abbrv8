@@ -29,3 +29,20 @@ end
 Then(/^I should see an error message$/) do
   expect(find('#errors').text).to_not be_blank
 end
+
+When(/^I visit the short url$/) do
+  visit @short_url
+end
+
+Then(/^I should be on "(.*?)"$/) do |url|
+  URI.parse(current_uri).host.should == url
+end
+
+When(/^I visit the stats page$/) do
+  visit stats_url
+end
+
+Then(/^I should see (\d+) visits? to the short url$/) do |num|
+  expect(page.text).to have_content(/#{@short_url}.*#{num}/)
+end
+
