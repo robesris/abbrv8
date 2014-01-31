@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :abbrv8_url
   
-  get '/stats' => 'abbrv8_url#stats', as: :stats
-  get '/:short_url' => 'abbrv8_url#go_to_short_url', as: :short
+  get 'stats' => 'abbrv8_url#stats', as: :stats
+  get ':short_url' => 'abbrv8_url#go_to_short_url', as: :short
 
 
   # Example of regular route:
