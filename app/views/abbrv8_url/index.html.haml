@@ -9,7 +9,7 @@
       .button
         = f.submit "Shorten"
 
-  #short-url= @short_url
+  #short-url= link_to(@short_url, @short_url) unless @short_url.blank?
 
   #errors
     - if @error_messages

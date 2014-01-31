@@ -23,9 +23,9 @@ Then(/^that url should lead to the original url$/) do
 end
 
 Then(/^I should not get a short url$/) do
-  expect(find('#short-url')).to be_blank
+  expect(find('#short-url').text).to be_blank
 end
 
 Then(/^I should see an error message$/) do
-  expect(find('#errors')).to_not be_blank
+  expect(find('#errors').text).to_not be_blank
 end

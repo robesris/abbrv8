@@ -23,6 +23,6 @@ Scenario: User shortens a valid url without the http successfully
 
 Scenario: User tries to shorten an invalid url
   Given I am on the homepage
-  And I try to shorten "www.notaurl"
+  And I try to shorten "www..notaurl"
   Then I should not get a short url
   And I should see an error message
