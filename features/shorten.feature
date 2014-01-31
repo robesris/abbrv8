@@ -32,7 +32,7 @@ Scenario: Visit a shortened url and check stats
   And I try to shorten "reddit.com"
   Then I should get a short url
   When I visit the short url
-  Then I should be on "www.reddit.com"
+  Then I should be on "reddit.com"
 
   When I visit the stats page
   Then I should see 1 visit to the short url

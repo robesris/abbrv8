@@ -13,4 +13,14 @@ class Abbrv8UrlController < ApplicationController
 
     render action: :index
   end
+
+  def go_to_short_url
+    abbrv8_url = Abbrv8Url.where(short_url: params[:short_url]).first
+
+    if abbrv8_url
+      redirect_to abbrv8_url.long_url
+    else
+      redriect_to action: :index
+    end
+  end
 end

@@ -35,7 +35,7 @@ When(/^I visit the short url$/) do
 end
 
 Then(/^I should be on "(.*?)"$/) do |url|
-  URI.parse(current_uri).host.should == url
+  URI.parse(current_url).host.should == url
 end
 
 When(/^I visit the stats page$/) do
