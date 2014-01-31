@@ -3,7 +3,9 @@ class Abbrv8Url < ActiveRecord::Base
   validates :short_url, uniqueness: true
   validates_formatting_of :long_url, using: :url
 
-  before_validation :standardize_long_url, :generate_short_url 
+  before_validation :standardize_long_url, :generate_short_url
+
+  has_many :visits 
 
   def standardize_long_url
     unless self.long_url[0..6] == "http://" || self.long_url[0..7] == "https://"

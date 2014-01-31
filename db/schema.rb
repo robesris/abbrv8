@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130190155) do
+ActiveRecord::Schema.define(version: 20140131010913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20140130190155) do
   create_table "abbrv8_urls", force: true do |t|
     t.string "long_url"
     t.string "short_url"
+  end
+
+  create_table "visits", force: true do |t|
+    t.integer  "abbrv8_url_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
