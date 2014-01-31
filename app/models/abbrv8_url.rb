@@ -1,8 +1,15 @@
 class Abbrv8Url < ActiveRecord::Base
   validates :long_url, presence: true, allow_blank: false
+  validates :short_url, uniqueness: true
   validate :url_format
 
-  before_create :generate_short_url
+  before_validation :standardize_long_url, :generate_short_url 
+
+  def standardize_long_url
+    unless self.long_url[0..6] == "http://" || self.long_url[0..7] == "https://"
+      self.long_url = "http://" + self.long_url
+    end
+  end
 
   def generate_short_url
     begin

@@ -5,6 +5,7 @@
 #short-url= @short_url
 
 #errors
-  - @errors.full_messages.each do |message|
-    .message= message
+  - if @error_messages
+    - @error_messages.each do |message|
+      .message= message
 
